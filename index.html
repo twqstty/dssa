@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин одежды [Название бренда]</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Магазин одежды [Название бренда]</h1>
+    <p>Уникальная одежда ручной работы</p>
+</header>
+
+<nav>
+    <button class="hamburger" aria-label="Открыть меню">☰</button>
+    <div class="nav-links">
+        <a href="#about" data-toggle="about">О нас</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#contact" data-toggle="contact">Контакты</a>
+    </div>
+</nav>
+
+<section id="about" class="section about-section hidden">
+    <button class="close-btn" aria-label="Закрыть секцию">×</button>
+    <h2>О нас</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <p>Мы — [Название бренда], небольшая команда энтузиастов, которые верят, что одежда — это не просто ткань, а способ выразить себя. С 2018 года мы создаем уникальные изделия ручной работы, вдохновленные природой, искусством и современными трендами.</p>
+            <h3>Наша миссия</h3>
+            <p>Делать моду доступной и индивидуальной. Каждое изделие шьется вручную с использованием экологичных материалов, чтобы вы чувствовали себя комфортно и уверенно.</p>
+            <h3>Почему выбирают нас?</h3>
+            <ul>
+                <li>Уникальный дизайн, которого не найти в масс-маркете</li>
+                <li>Высокое качество материалов и пошива</li>
+                <li>Персональный подход к каждому заказу</li>
+            </ul>
+            <p>Мы гордимся тем, что наша одежда рассказывает истории — ваши истории. Присоединяйтесь к нам в этом творческом путешествии!</p>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1551488831-68b2d9a7e24c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Мастер за работой над созданием одежды" loading="lazy">
+            <div class="mini-gallery">
+                <img src="https://images.unsplash.com/photo-1519748771451-a94c5b432289?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Ткань" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Пошив" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="catalog" class="section">
+    <h2>Наши товары</h2>
+    <div class="slider-container">
+        <button id="prevBtn" class="slider-btn" aria-label="Предыдущий слайд">←</button>
+        <div id="slider" class="slider">
+            <div class="slide">
+                <img src="https://i1.sndcdn.com/artworks-EVuQNIzzl9yNvHOA-E3zCGA-t500x500.jpg" alt="Футболка с принтом" loading="lazy">
+                <div class="slide-info">
+                    <p>Футболка с принтом</p>
+                    <p>2500 ₽</p>
+                    <button class="buy-btn">Купить</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://the-flow.ru/uploads/images/resize/830x0/adaptiveResize/11/49/82/06/35/fef811140cd7.jpg" alt="Худи oversize" loading="lazy">
+                <div class="slide-info">
+                    <p>Худи oversize</p>
+                    <p>4500 ₽</p>
+                    <button class="buy-btn">Купить</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://i1.sndcdn.com/artworks-EVuQNIzzl9yNvHOA-E3zCGA-t500x500.jpg" alt="Футболка с принтом" loading="lazy">
+                <div class="slide-info">
+                    <p>Футболка с принтом</p>
+                    <p>2500 ₽</p>
+                    <button class="buy-btn">Купить</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://i1.sndcdn.com/artworks-EVuQNIzzl9yNvHOA-E3zCGA-t500x500.jpg" alt="Футболка с принтом" loading="lazy">
+                <div class="slide-info">
+                    <p>Футболка с принтом</p>
+                    <p>2500 ₽</p>
+                    <button class="buy-btn">Купить</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://i1.sndcdn.com/artworks-EVuQNIzzl9yNvHOA-E3zCGA-t500x500.jpg" alt="Футболка с принтом" loading="lazy">
+                <div class="slide-info">
+                    <p>Футболка с принтом</p>
+                    <p>2500 ₽</p>
+                    <button class="buy-btn">Купить</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://i1.sndcdn.com/artworks-EVuQNIzzl9yNvHOA-E3zCGA-t500x500.jpg" alt="Футболка с принтом" loading="lazy">
+                <div class="slide-info">
+                    <p>Футболка с принтом</p>
+                    <p>2500 ₽</p>
+                    <button class="buy-btn">Купить</button>
+                </div>
+            </div>
+        </div>
+        <button id="nextBtn" class="slider-btn" aria-label="Следующий слайд">→</button>
+    </div>
+    <div id="slider-dots" class="slider-dots"></div>
+</section>
+
+<section id="contact" class="section contact-section hidden">
+    <h2>Контакты</h2>
+    <form class="contact-form">
+        <input type="text" placeholder="Ваше имя" required>
+        <input type="email" placeholder="Ваш email" required>
+        <textarea placeholder="Ваше сообщение" required></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2025 Магазин одежды [Название бренда]. Все права защищены.</p>
+    <p>Связаться с нами: <a href="mailto:info@brandname.com">info@brandname.com</a></p>
+    <div class="social-links">
+        <a href="#" aria-label="Instagram"><img src="https://via.placeholder.com/30" alt="Instagram" loading="lazy"></a>
+        <a href="#" aria-label="Telegram"><img src="https://via.placeholder.com/30" alt="Telegram" loading="lazy"></a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
