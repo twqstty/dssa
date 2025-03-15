@@ -8,6 +8,37 @@ body {
     color: #333;
     line-height: 1.6;
     animation: fadeIn 1s ease-in;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #3498db;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* Шапка */
@@ -17,6 +48,10 @@ header {
     padding: 40px 20px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+body.dark-theme header {
+    background: linear-gradient(135deg, #1c2526, #2a4d69);
 }
 
 header h1 {
@@ -31,15 +66,30 @@ header p {
     opacity: 0.9;
 }
 
+#themeToggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
 /* Навигация */
 nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: #fff;
+    background-color: #a6a5a5;
     padding: 15px 0;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+}
+body.dark-theme nav {
+    background-color: #2a2a2a;
 }
 
 .hamburger {
@@ -64,6 +114,9 @@ nav a {
     font-weight: 500;
     transition: color 0.3s ease;
 }
+body.dark-theme nav a {
+    color: #f0f0f0;
+}
 
 nav a:hover {
     color: #3498db;
@@ -74,6 +127,10 @@ nav a:hover {
     padding: 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    transition: background-color 0.3s ease;
+}
+body.dark-theme .section {
+    background-color: #2a2a2a;
 }
 
 .section h2 {
@@ -81,6 +138,9 @@ nav a:hover {
     margin-bottom: 20px;
     color: #2c3e50;
     text-align: center;
+}
+body.dark-theme .section h2 {
+    color: #f0f0f0;
 }
 
 /* Скрытие секции */
@@ -95,6 +155,10 @@ nav a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 40px;
     position: relative;
+    transition: background-color 0.3s ease;
+}
+body.dark-theme .about-section {
+    background-color: #2a2a2a;
 }
 
 .close-btn {
@@ -107,6 +171,9 @@ nav a:hover {
     color: #2c3e50;
     cursor: pointer;
     transition: color 0.3s ease;
+}
+body.dark-theme .close-btn {
+    color: #f0f0f0;
 }
 
 .close-btn:hover {
@@ -131,11 +198,17 @@ nav a:hover {
     margin-top: 20px;
     margin-bottom: 10px;
 }
+body.dark-theme .about-text h3 {
+    color: #f0f0f0;
+}
 
 .about-text p {
     font-size: 1.1rem;
     color: #666;
     margin-bottom: 15px;
+}
+body.dark-theme .about-text p {
+    color: #ccc;
 }
 
 .about-text ul {
@@ -150,6 +223,9 @@ nav a:hover {
     margin-bottom: 10px;
     position: relative;
     padding-left: 20px;
+}
+body.dark-theme .about-text ul li {
+    color: #ccc;
 }
 
 .about-text ul li:before {
@@ -172,21 +248,54 @@ nav a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.mini-gallery {
+.gallery {
     display: flex;
     gap: 10px;
     margin-top: 15px;
 }
 
-.mini-gallery img {
+.gallery img {
     width: 100px;
     height: 100px;
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+.gallery-preview {
+    margin-top: 20px;
+}
+
+.gallery-preview img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Слайдер */
+.search-input {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+body.dark-theme .search-input {
+    background-color: #333;
+    border-color: #555;
+    color: #f0f0f0;
+}
+
 .slider-container {
     display: flex;
     align-items: center;
@@ -207,6 +316,10 @@ nav a:hover {
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     touch-action: pan-y;
+    transition: background-color 0.3s ease;
+}
+body.dark-theme .slider {
+    background-color: #2a2a2a;
 }
 
 .slide {
@@ -218,12 +331,22 @@ nav a:hover {
     border-radius: 8px;
     overflow: hidden;
     background-color: #fff;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+body.dark-theme .slide {
+    background-color: #2a2a2a;
 }
 
 .slide img {
     width: 100%;
     height: 220px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.slide:hover img {
+    transform: scale(1.1);
 }
 
 .slide-info {
@@ -235,25 +358,87 @@ nav a:hover {
     font-weight: 500;
     color: #2c3e50;
 }
+body.dark-theme .slide-info p:first-child {
+    color: #f0f0f0;
+}
 
 .slide-info p:nth-child(2) {
     color: #3498db;
     font-weight: 600;
 }
 
-.buy-btn {
+/* Страница товара */
+.product-section {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+body.dark-theme .product-section {
+    background-color: #2a2a2a;
+}
+
+.product-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-details h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+body.dark-theme .product-details h2 {
+    color: #f0f0f0;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #3498db;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+body.dark-theme .description {
+    color: #ccc;
+}
+
+.order-btn {
     background-color: #3498db;
     color: white;
     border: none;
-    padding: 8px 15px;
+    padding: 10px 20px;
     border-radius: 5px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
 }
 
-.buy-btn:hover {
+.order-btn:hover {
     background-color: #2980b9;
 }
 
@@ -317,30 +502,68 @@ nav a:hover {
     background-color: #3498db;
 }
 
-/* Секция "Контакты" */
-.contact-section {
+/* Модальное окно */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    transition: background-color 0.3s ease;
+}
+body.dark-theme .modal {
+    background-color: #2a2a2a;
 }
 
-.contact-form {
+.modal-content {
+    position: relative;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+body.dark-theme .modal-close-btn {
+    color: #f0f0f0;
+}
+
+.modal-close-btn:hover {
+    color: #3498db;
+}
+
+.contact-form, .order-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-width: 500px;
-    margin: 0 auto;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input, .contact-form textarea, .order-form input {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+body.dark-theme .contact-form input, body.dark-theme .contact-form textarea, body.dark-theme .order-form input {
+    background-color: #333;
+    border-color: #555;
+    color: #f0f0f0;
 }
 
-.contact-form button {
+.contact-form button, .order-form button {
     background-color: #3498db;
     color: white;
     padding: 10px;
@@ -349,7 +572,44 @@ nav a:hover {
     cursor: pointer;
 }
 
-.contact-form button:hover {
+.contact-form button:hover, .order-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Кнопка "Наверх" */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+}
+
+.scroll-top-btn:hover {
     background-color: #2980b9;
 }
 
@@ -359,6 +619,10 @@ footer {
     color: white;
     padding: 30px 20px;
     text-align: center;
+    transition: background-color 0.3s ease;
+}
+body.dark-theme footer {
+    background: linear-gradient(135deg, #1c2526, #2a4d69);
 }
 
 footer a {
@@ -413,6 +677,9 @@ footer a:hover {
         padding: 15px 0;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
+    body.dark-theme .nav-links {
+        background-color: #2a2a2a;
+    }
 
     .nav-links.active {
         display: flex;
@@ -431,12 +698,12 @@ footer a:hover {
         font-size: 1.8rem;
     }
 
-    .about-content {
+    .about-content, .product-content {
         flex-direction: column;
         gap: 20px;
     }
 
-    .about-text, .about-image {
+    .about-text, .about-image, .product-image, .product-details {
         min-width: 100%;
     }
 
@@ -448,25 +715,25 @@ footer a:hover {
         font-size: 1rem;
     }
 
-    .mini-gallery img {
+    .gallery img {
         width: 80px;
         height: 80px;
     }
 
     .slider-container {
-        flex-direction: row; /* Кнопки остаются по бокам */
+        flex-direction: row;
         gap: 10px;
     }
 
     .slider {
         padding: 15px;
-        gap: 0; /* Убираем промежутки, так как только 1 слайд */
+        gap: 0;
         justify-content: center;
     }
 
     .slide {
-        flex: none; /* Отключаем гибкость */
-        width: 100%; /* Один слайд занимает всю ширину */
+        flex: none;
+        width: 100%;
     }
 
     .slide img {
@@ -479,8 +746,16 @@ footer a:hover {
         font-size: 1.2rem;
     }
 
-    .contact-form {
-        max-width: 100%;
+    .modal {
+        padding: 30px;
+    }
+
+    .product-details h2 {
+        font-size: 1.8rem;
+    }
+
+    .price {
+        font-size: 1.3rem;
     }
 }
 
@@ -518,7 +793,7 @@ footer a:hover {
         font-size: 1.5rem;
     }
 
-    .about-section, .contact-section {
+    .about-section, .product-section {
         padding: 20px;
     }
 
@@ -530,12 +805,12 @@ footer a:hover {
         font-size: 0.9rem;
     }
 
-    .mini-gallery {
+    .gallery {
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .mini-gallery img {
+    .gallery img {
         width: 60px;
         height: 60px;
     }
@@ -552,11 +827,6 @@ footer a:hover {
         font-size: 0.9rem;
     }
 
-    .buy-btn {
-        padding: 6px 12px;
-        font-size: 0.8rem;
-    }
-
     .slider-btn {
         width: 35px;
         height: 35px;
@@ -566,6 +836,18 @@ footer a:hover {
     .dot {
         width: 8px;
         height: 8px;
+    }
+
+    .modal {
+        padding: 20px;
+    }
+
+    .product-details h2 {
+        font-size: 1.5rem;
+    }
+
+    .price {
+        font-size: 1.2rem;
     }
 
     footer {
@@ -578,4 +860,3 @@ footer a:hover {
         height: 25px;
     }
 }
-

@@ -1,9 +1,16 @@
+// Preloader
+window.addEventListener('load', () => {
+    document.getElementById('preloader').style.display = 'none';
+});
+
 // Управление секциями
 const aboutLink = document.querySelector('[data-toggle="about"]');
 const aboutSection = document.getElementById('about');
 const closeBtn = document.querySelector('.close-btn');
 const contactLink = document.querySelector('[data-toggle="contact"]');
-const contactSection = document.getElementById('contact');
+const contactModal = document.getElementById('contact');
+const modalCloseBtn = document.querySelector('.modal-close-btn');
+const overlay = document.getElementById('overlay');
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
@@ -16,8 +23,11 @@ closeBtn.addEventListener('click', () => aboutSection.classList.add('hidden'));
 
 contactLink.addEventListener('click', (e) => {
     e.preventDefault();
-    toggleSection(contactSection);
+    openModal(contactModal);
 });
+
+modalCloseBtn.addEventListener('click', () => closeModal(contactModal));
+overlay.addEventListener('click', () => closeModal(contactModal));
 
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
@@ -32,27 +42,52 @@ function toggleSection(section) {
     }
 }
 
+function openModal(modal) {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+    modal.style.animation = 'fadeIn 0.3s ease-in';
+}
+
+function closeModal(modal) {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+}
+
+// Темная тема
+const themeToggle = document.getElementById('themeToggle');
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+});
+
+// Галерея
+const galleryImages = document.querySelectorAll('.gallery img');
+const preview = document.querySelector('.gallery-preview');
+galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+        preview.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+    });
+});
+
 // Управление слайдером
 const slider = document.getElementById('slider');
-const slides = document.querySelectorAll('.slide');
+let slides = document.querySelectorAll('.slide');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const dotsContainer = document.getElementById('slider-dots');
+const searchInput = document.getElementById('search');
 
 let currentIndex = 0;
-let visibleSlides = window.innerWidth <= 768 ? 1 : 3; // 1 слайд на мобильных, 3 на десктопе
-const totalGroups = Math.ceil(slides.length / visibleSlides);
+let visibleSlides = window.innerWidth <= 768 ? 1 : 3;
 
-// Обновляем visibleSlides при изменении размера окна
 window.addEventListener('resize', () => {
     visibleSlides = window.innerWidth <= 768 ? 1 : 3;
     updateSlider();
 });
 
-// Создаем точки
 function createDots() {
-    dotsContainer.innerHTML = ''; // Очищаем точки перед созданием
-    for (let i = 0; i < slides.length; i++) { // Точки теперь для каждого слайда
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < slides.length; i++) {
         const dot = document.createElement('div');
         dot.classList.add('dot');
         dot.addEventListener('click', () => goToGroup(i));
@@ -61,7 +96,6 @@ function createDots() {
     updateDots();
 }
 
-// Обновляем активную точку
 function updateDots() {
     const dots = document.querySelectorAll('.dot');
     dots.forEach((dot, index) => {
@@ -69,7 +103,6 @@ function updateDots() {
     });
 }
 
-// Переход к конкретному слайду
 function goToGroup(index) {
     currentIndex = index;
     if (currentIndex >= slides.length) currentIndex = 0;
@@ -77,7 +110,6 @@ function goToGroup(index) {
     updateSlider();
 }
 
-// Сдвиг слайдов
 function shiftSlides(direction) {
     prevBtn.disabled = true;
     nextBtn.disabled = true;
@@ -101,24 +133,25 @@ function shiftSlides(direction) {
     }, 500);
 }
 
-// Обновление слайдера
 function updateSlider() {
     slider.innerHTML = '';
     for (let i = 0; i < visibleSlides; i++) {
         const slideIndex = (currentIndex + i) % slides.length;
         const newSlide = slides[slideIndex].cloneNode(true);
         newSlide.style.animation = 'slideIn 0.5s forwards';
+        newSlide.addEventListener('click', () => {
+            const productId = newSlide.getAttribute('data-product-id');
+            window.location.href = `product.html?id=${productId}`;
+        });
         slider.appendChild(newSlide);
     }
     updateDots();
 }
 
-// Автоматическая прокрутка
 let autoSlide = setInterval(() => shiftSlides('right'), 5000);
 slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
 slider.addEventListener('mouseleave', () => autoSlide = setInterval(() => shiftSlides('right'), 5000));
 
-// Сенсорные жесты для слайдера
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -143,14 +176,32 @@ slider.addEventListener('touchend', () => {
     autoSlide = setInterval(() => shiftSlides('right'), 5000);
 });
 
-// Обработчики событий для слайдера
 nextBtn.addEventListener('click', () => shiftSlides('right'));
 prevBtn.addEventListener('click', () => shiftSlides('left'));
+
+// Поиск по каталогу
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    const filteredSlides = Array.from(document.querySelectorAll('.slide')).filter(slide => 
+        slide.querySelector('.slide-info p:first-child').textContent.toLowerCase().includes(query)
+    );
+    currentIndex = 0;
+    slides = filteredSlides.length ? filteredSlides : document.querySelectorAll('.slide');
+    updateSlider();
+    createDots();
+});
+
+// Кнопка "Наверх"
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 200);
+});
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 // Инициализация
 createDots();
 updateSlider();
-
-
 
 

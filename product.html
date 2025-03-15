@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товар - Магазин одежды [Название бренда]</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Магазин одежды [Название бренда]</h1>
+    <p>Уникальная одежда ручной работы</p>
+    <button id="themeToggle" aria-label="Сменить тему">🌙</button>
+</header>
+
+<nav>
+    <button class="hamburger" aria-label="Открыть меню">☰</button>
+    <div class="nav-links">
+        <a href="index.html#about" data-toggle="about">О нас</a>
+        <a href="index.html#catalog">Каталог</a>
+        <a href="index.html#contact" data-toggle="contact">Контакты</a>
+    </div>
+</nav>
+
+<section class="section product-section">
+    <div class="product-content">
+        <div class="product-image">
+            <img id="productImage" src="" alt="" loading="lazy">
+        </div>
+        <div class="product-details">
+            <h2 id="productName"></h2>
+            <p id="productPrice" class="price"></p>
+            <p class="description" id="productDescription">Это уникальный предмет гардероба, созданный вручную из экологичных материалов. Идеально подходит для тех, кто ценит стиль и комфорт.</p>
+            <div class="product-options">
+                <label for="size">Размер:</label>
+                <select id="size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <button class="order-btn">Заказать</button>
+        </div>
+    </div>
+</section>
+
+<!-- Модальное окно для заказа -->
+<div id="orderModal" class="modal hidden">
+    <div class="modal-content">
+        <button class="modal-close-btn" aria-label="Закрыть окно">×</button>
+        <h2>Оформить заказ</h2>
+        <form class="order-form">
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="tel" placeholder="Ваш телефон" required>
+            <input type="text" id="orderSize" placeholder="Выбранный размер" readonly>
+            <button type="submit">Заказать</button>
+        </form>
+    </div>
+</div>
+<div id="overlay" class="overlay hidden"></div>
+
+<footer>
+    <p>© 2025 Магазин одежды [Название бренда]. Все права защищены.</p>
+    <p>Связаться с нами: <a href="mailto:info@brandname.com">info@brandname.com</a></p>
+    <div class="social-links">
+        <a href="#" aria-label="Instagram"><img src="src/inst.png" alt="Instagram" loading="lazy"></a>
+        <a href="#" aria-label="Telegram"><img src="src/tg.png" alt="Telegram" loading="lazy"></a>
+    </div>
+</footer>
+
+<script src="product.js"></script>
+</body
