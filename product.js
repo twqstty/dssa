@@ -38,40 +38,46 @@ const productId = parseInt(urlParams.get('id')); // Приводим к числ
 
 const products = {
     1: { 
-        name: 'Футболка с принтом', 
-        price: '2500 ₽', 
-        image: 'https://i1.sndcdn.com/artworks-EVuQNIzzl9yNvHOA-E3zCGA-t500x500.jpg',
-        description: 'Стильная футболка с уникальным принтом, выполненная из 100% хлопка. Подходит для повседневной носки.'
+        name: 'Толстовка с принтом Brawl', 
+        price: '1500 ₽', 
+        image: 'https://maek-mir.ru/image/cache/data/catalog/tolstovki/tolstovka-brawl-stars-800x800.jpg',
+        description: 'Стильная толстовка с уникальным принтом, выполненная из 100% хлопка. Подходит для повседневной носки.'
     },
     2: { 
-        name: 'Худи oversize', 
+        name: 'Шорты MM', 
         price: '4500 ₽', 
-        image: 'https://the-flow.ru/uploads/images/resize/830x0/adaptiveResize/11/49/82/06/35/fef811140cd7.jpg',
-        description: 'Тёплое и уютное худи в стиле oversize. Отличный выбор для прохладной погоды.'
+        image: 'https://ir-3.ozone.ru/s3/multimedia-1-b/c1000/7349795831.jpg',
+        description: 'Шорты Maison Margela'
     },
     3: { 
-        name: 'Футболка с принтом', 
-        price: '2500 ₽', 
-        image: 'https://i1.sndcdn.com/artworks-EVuQNIzzl9yNvHOA-E3zCGA-t500x500.jpg',
+        name: 'Футболка Сахур', 
+        price: '4200 ₽', 
+        image: 'https://cdn1.ozone.ru/s3/multimedia-1-e/7450322846.jpg',
         description: 'Ещё одна вариация нашей популярной футболки с принтом. Лёгкая и удобная.'
     },
     4: { 
-        name: 'Футболка с принтом', 
-        price: '2500 ₽', 
-        image: 'https://i1.sndcdn.com/artworks-EVuQNIzzl9yNvHOA-E3zCGA-t500x500.jpg',
-        description: 'Классическая футболка с ярким дизайном, созданная вручную.'
+        name: 'Рик Оувенсы', 
+        price: '37600 ₽', 
+        image: 'https://png.klev.club/uploads/posts/2024-04/png-klev-club-67w8-p-rik-ovens-png-24.png',
+        description: 'Самая лучшая обувь с ярким дизайном, созданная вручную.'
     },
     5: { 
-        name: 'Футболка с принтом', 
-        price: '2500 ₽', 
-        image: 'https://i1.sndcdn.com/artworks-EVuQNIzzl9yNvHOA-E3zCGA-t500x500.jpg',
+        name: 'Футболка erd', 
+        price: '7000 ₽', 
+        image: 'https://frankfurt.apollo.olxcdn.com/v1/files/9l78uzcm66rn2-KZ/image;s=1000x884',
         description: 'Простая, но стильная футболка для любого случая.'
     },
     6: { 
-        name: 'Футболка с принтом', 
-        price: '2500 ₽', 
-        image: 'https://i1.sndcdn.com/artworks-EVuQNIzzl9yNvHOA-E3zCGA-t500x500.jpg',
-        description: 'Футболка с минималистичным дизайном, подчёркивающим индивидуальность.'
+        name: 'Скини джинсы', 
+        price: '2506 ₽', 
+        image: 'https://usmall.ru/image/694/28/50/efb5448674248f043c78627aaec1ab37.jpeg',
+        description: 'Покупай штанишки'
+    },
+    7: {
+        name: 'Футболка Clash Royale',
+        price: '6969,69 ₽',
+        image: 'https://basket-16.wbbasket.ru/vol2560/part256059/256059540/images/big/1.webp',
+        description: 'Футболка для настоящих сигм'
     }
 };
 

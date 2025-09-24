@@ -1,4 +1,3 @@
-// Preloader
 window.addEventListener('load', () => {
     document.getElementById('preloader').style.display = 'none';
 });
@@ -179,16 +178,37 @@ slider.addEventListener('touchend', () => {
 nextBtn.addEventListener('click', () => shiftSlides('right'));
 prevBtn.addEventListener('click', () => shiftSlides('left'));
 
-// Поиск по каталогу
+// ✅ Новый поиск по каталогу
+const allSlides = Array.from(document.querySelectorAll('.slide'));
+slides = allSlides;
+
 searchInput.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase();
-    const filteredSlides = Array.from(document.querySelectorAll('.slide')).filter(slide => 
-        slide.querySelector('.slide-info p:first-child').textContent.toLowerCase().includes(query)
+
+    if (!query.trim()) {
+        // Пустой запрос → показываем все товары
+        slides = allSlides;
+        currentIndex = 0;
+        updateSlider();
+        createDots();
+        return;
+    }
+
+    const filteredSlides = allSlides.filter(slide => 
+        slide.querySelector('.slide-info p:first-child')
+            .textContent.toLowerCase()
+            .includes(query)
     );
-    currentIndex = 0;
-    slides = filteredSlides.length ? filteredSlides : document.querySelectorAll('.slide');
-    updateSlider();
-    createDots();
+
+    if (filteredSlides.length > 0) {
+        slides = filteredSlides;
+        currentIndex = 0;
+        updateSlider();
+        createDots();
+    } else {
+        slider.innerHTML = '<p style="text-align:center; padding:20px;">Товар не найден</p>';
+        dotsContainer.innerHTML = '';
+    }
 });
 
 // Кнопка "Наверх"
@@ -203,5 +223,3 @@ scrollTopBtn.addEventListener('click', () => {
 // Инициализация
 createDots();
 updateSlider();
-
-
