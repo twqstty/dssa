@@ -25,8 +25,11 @@ body.dark-theme .top-nav {
     position: sticky;
     top: 0;
     background: none;
+    z-index: 9000;
 }
-
+.dropdown{
+    overflow: scroll;
+}
 /* Основной список вкладок */
 .nav-tabs {
     display: flex;
