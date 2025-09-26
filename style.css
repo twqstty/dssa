@@ -15,8 +15,127 @@ body.dark-theme {
     background-color: #1a1a1a;
     color: #f0f0f0;
 }
+body.dark-theme .top-nav {
+    background: none;
+}
 
-/* Preloader */
+/* Верхняя панель без фона */
+.top-nav {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background: none;
+}
+
+/* Основной список вкладок */
+.nav-tabs {
+    display: flex;
+    margin: 15px;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-tabs .tab {
+    flex: 1; /* равная ширина */
+    position: relative;
+    text-align: center;
+}
+
+.nav-tabs .tab > a {
+    display: block;
+    padding: 15px 0;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Подсветка вкладки при наведении */
+.nav-tabs .tab:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Выпадающее меню */
+.nav-tabs .tab .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%; /* подменю = ширине вкладки */
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 0;
+    margin: 0;
+    z-index: 200;
+}
+
+body.dark-theme .nav-tabs .tab .dropdown {
+    background-color: none;
+}
+
+/* Показываем подменю при наведении на вкладку */
+.nav-tabs .tab:hover .dropdown {
+    display: block;
+}
+
+/* Элементы подменю */
+.nav-tabs .tab .dropdown li {
+    width: 100%; /* li занимает всю ширину */
+}
+
+.nav-tabs .tab .dropdown li a {
+    display: block;
+    padding: 10px;
+    color: #2c3e50;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-theme .nav-tabs .tab .dropdown li a {
+    color: black;
+}
+ul{
+    list-style-type: none;
+}
+.nav-tabs .tab .dropdown li:hover {
+    background-color: #3498db;
+}
+
+body.dark-theme .nav-tabs .tab .dropdown li:hover {
+    background-color: #2a4d69;
+}
+
+.nav-tabs .tab .dropdown li:hover a {
+    color: white;
+}
+
+/* Убедимся, что панель находится над кнопкой темы */
+#themeToggle {
+    position: relative;
+    z-index: 100; /* ниже панели */
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .nav-tabs {
+        flex-direction: column;
+    }
+    .nav-tabs .tab {
+        width: 100%;
+    }
+    .nav-tabs .tab .dropdown {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: none;
+    }
+    .nav-tabs .tab.active .dropdown {
+        display: block;
+    }
+}
+
+
 .preloader {
     position: fixed;
     top: 0;
@@ -83,7 +202,6 @@ nav {
     top: 0;
     z-index: 100;
     background-color: #a6a5a5;
-    padding: 15px 0;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: background-color 0.3s ease;
@@ -858,5 +976,70 @@ footer a:hover {
     .social-links img {
         width: 25px;
         height: 25px;
+    }
+}
+@media (max-width: 768px) {
+    .nav-tabs {
+        flex-direction: column;
+    }
+    .nav-tabs .tab {
+        width: 100%;
+    }
+    .nav-tabs .tab .dropdown {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+    }
+    .nav-tabs .tab.active .dropdown {
+        display: block;
+    }
+}
+
+
+
+
+/* Адаптация верхней панели для мобильных (фиксированные ячейки в одну строку) */
+@media (max-width: 768px) {
+    .nav-tabs {
+        flex-direction: row; /* оставляем горизонтально */
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-tabs .tab {
+        flex: 1; /* все вкладки одинаковой ширины */
+    }
+
+    .nav-tabs .tab > a {
+        padding: 10px 0; /* уменьшаем вертикальные отступы */
+        font-size: 0.9rem; /* уменьшаем шрифт */
+    }
+
+    /* Подменю */
+    .nav-tabs .tab .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: none;
+    }
+
+    .nav-tabs .tab:hover .dropdown {
+        display: block;
+    }
+}
+
+/* Для маленьких телефонов */
+@media (max-width: 480px) {
+    .nav-tabs .tab > a {
+        padding: 8px 0;
+        font-size: 0.8rem;
+    }
+
+    .nav-tabs .tab .dropdown li a {
+        padding: 8px 10px;
+        font-size: 0.8rem;
     }
 }
