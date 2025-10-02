@@ -1,11 +1,9 @@
-// Темная тема
 const themeToggle = document.getElementById('themeToggle');
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme');
     themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
 });
 
-// Модальное окно для заказа
 const orderBtn = document.querySelector('.order-btn');
 const orderModal = document.getElementById('orderModal');
 const modalCloseBtn = document.querySelector('.modal-close-btn');
@@ -14,7 +12,7 @@ const sizeSelect = document.getElementById('size');
 const orderSizeInput = document.getElementById('orderSize');
 
 orderBtn.addEventListener('click', () => {
-    orderSizeInput.value = sizeSelect.value; // Подставляем выбранный размер
+    orderSizeInput.value = sizeSelect.value;
     openModal(orderModal);
 });
 
@@ -32,9 +30,8 @@ function closeModal(modal) {
     overlay.classList.add('hidden');
 }
 
-// Получение данных о товаре из URL
 const urlParams = new URLSearchParams(window.location.search);
-const productId = parseInt(urlParams.get('id')); // Приводим к числу
+const productId = parseInt(urlParams.get('id'));
 
 const products = {
     1: { 
@@ -78,12 +75,54 @@ const products = {
         price: '6969,69 ₽',
         image: 'https://basket-16.wbbasket.ru/vol2560/part256059/256059540/images/big/1.webp',
         description: 'Футболка для настоящих сигм'
+    },
+    8: {
+        name: 'Футболка Clash Royale Gay',
+        price: '6500 ₽',
+        image: 'https://i.etsystatic.com/58866856/r/il/c05805/7009095890/il_570xN.7009095890_yfs2.jpg',
+        description: 'Футболка для настоящих геев, если ты один из нас то тебе следует ее купить'
+    },
+    9: {
+        name: 'Футболка Clash Royale The Log',
+        price: '2200 ₽',
+        image: 'https://m.media-amazon.com/images/I/51CgLLViJNL._AC_SY350_QL65_.jpg',
+        description: 'Крутая футболка для зала чтобы дамы знали свое место' 
+    },
+    10: {
+        name: 'Футболка Clash Royale Inferno',
+        price: '2200 ₽',
+        image: 'https://basket-16.wbbasket.ru/vol2409/part240911/240911123/images/big/1.webp',
+        description: 'Крутая футболка для зала чтобы дамы знали кто тут босс'
+    },
+    11: {
+        name: 'Футболка Clash Royale Fuck',
+        price: '2200 ₽',
+        image: 'https://static.insales-cdn.com/images/products/1/2084/689162276/klehsh-royal-futbolka-ehmodzi.jpg',
+        description: 'Лучшая футболка чтобы к тебе никто не приставал'
+    },
+    12: {
+        name: 'Футболка Нигер на свинюшке',
+        price: '2900 ₽',
+        image: 'https://printbar.ru/upload/thumb/images/ea/eaebf20jbb6_580x0.jpg',
+        description: 'Ну это самая лучшая футболка из всех возможных'
+    },
+    13: {
+        name: 'Футболка Плаки Плаки',
+        price: '2796 ₽',
+        image: 'https://ae04.alicdn.com/kf/S46e1bb379db245f3a596149f642dda94L.jpg_480x480.jpg',
+        description: 'Футболка подходит чтобы поприкалываться над своим другом '
+    },
+    14: {
+        name: 'Футболка Clash Royale Golem',
+        price: '3200 ₽',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmVZ6Tn4uvYsss-DAb2RQIJSjxOOiL1RjxPQ&s',
+        description: ''
     }
 };
 
-console.log('Product ID:', productId); // Отладка
+console.log('Product ID:', productId);
 const product = products[productId];
-console.log('Product:', product); // Отладка
+console.log('Product:', product);
 
 if (product) {
     document.getElementById('productName').textContent = product.name;
@@ -95,7 +134,6 @@ if (product) {
     document.querySelector('.product-content').innerHTML = '<p>Товар не найден</p>';
 }
 
-// Навигация
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 

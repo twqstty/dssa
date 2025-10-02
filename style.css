@@ -1,4 +1,3 @@
-/* Общие стили */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -19,7 +18,6 @@ body.dark-theme .top-nav {
     background: none;
 }
 
-/* Верхняя панель без фона */
 .top-nav {
     width: 100%;
     position: sticky;
@@ -30,7 +28,6 @@ body.dark-theme .top-nav {
 .dropdown{
     overflow: scroll;
 }
-/* Основной список вкладок */
 .nav-tabs {
     display: flex;
     margin: 15px;
@@ -39,7 +36,7 @@ body.dark-theme .top-nav {
 }
 
 .nav-tabs .tab {
-    flex: 1; /* равная ширина */
+    flex: 1;
     position: relative;
     text-align: center;
 }
@@ -53,18 +50,16 @@ body.dark-theme .top-nav {
     transition: background-color 0.3s ease;
 }
 
-/* Подсветка вкладки при наведении */
 .nav-tabs .tab:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Выпадающее меню */
 .nav-tabs .tab .dropdown {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%; /* подменю = ширине вкладки */
+    width: 100%;
     background-color: #fff;
     border-radius: 0 0 5px 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -77,14 +72,12 @@ body.dark-theme .nav-tabs .tab .dropdown {
     background-color: none;
 }
 
-/* Показываем подменю при наведении на вкладку */
 .nav-tabs .tab:hover .dropdown {
     display: block;
 }
 
-/* Элементы подменю */
 .nav-tabs .tab .dropdown li {
-    width: 100%; /* li занимает всю ширину */
+    width: 100%;
 }
 
 .nav-tabs .tab .dropdown li a {
@@ -113,13 +106,11 @@ body.dark-theme .nav-tabs .tab .dropdown li:hover {
     color: white;
 }
 
-/* Убедимся, что панель находится над кнопкой темы */
 #themeToggle {
     position: relative;
-    z-index: 100; /* ниже панели */
+    z-index: 100; 
 }
 
-/* Адаптив для мобильных */
 @media (max-width: 768px) {
     .nav-tabs {
         flex-direction: column;
@@ -163,7 +154,6 @@ body.dark-theme .nav-tabs .tab .dropdown li:hover {
     to { transform: rotate(360deg); }
 }
 
-/* Шапка */
 header {
     background: linear-gradient(135deg, #2c3e50, #3498db);
     color: white;
@@ -199,7 +189,6 @@ header p {
     color: white;
 }
 
-/* Навигация */
 nav {
     position: sticky;
     top: 0;
@@ -243,7 +232,6 @@ nav a:hover {
     color: #3498db;
 }
 
-/* Секция */
 .section {
     padding: 60px 20px;
     max-width: 1200px;
@@ -264,12 +252,10 @@ body.dark-theme .section h2 {
     color: #f0f0f0;
 }
 
-/* Скрытие секции */
 .hidden {
     display: none;
 }
 
-/* Секция "О нас" */
 .about-section {
     background-color: #fff;
     border-radius: 12px;
@@ -399,7 +385,6 @@ body.dark-theme .about-text ul li {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Слайдер */
 .search-input {
     display: block;
     margin: 0 auto 20px;
@@ -488,7 +473,6 @@ body.dark-theme .slide-info p:first-child {
     font-weight: 600;
 }
 
-/* Страница товара */
 .product-section {
     background-color: #fff;
     border-radius: 12px;
@@ -563,7 +547,6 @@ body.dark-theme .description {
     background-color: #2980b9;
 }
 
-/* Анимация */
 @keyframes slideIn {
     from { opacity: 0; transform: translateX(100%); }
     to { opacity: 1; transform: translateX(0); }
@@ -579,7 +562,6 @@ body.dark-theme .description {
     to { opacity: 1; }
 }
 
-/* Кнопки */
 .slider-btn {
     background-color: #3498db;
     color: white;
@@ -602,12 +584,11 @@ body.dark-theme .description {
     cursor: not-allowed;
 }
 
-/* Индикаторы (точки) */
 .slider-dots {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 15px;
+    margin: 15px;
 }
 
 .dot {
@@ -623,7 +604,6 @@ body.dark-theme .description {
     background-color: #3498db;
 }
 
-/* Модальное окно */
 .modal {
     position: fixed;
     top: 50%;
@@ -697,7 +677,6 @@ body.dark-theme .contact-form input, body.dark-theme .contact-form textarea, bod
     background-color: #2980b9;
 }
 
-/* Overlay */
 .overlay {
     position: fixed;
     top: 0;
@@ -708,7 +687,6 @@ body.dark-theme .contact-form input, body.dark-theme .contact-form textarea, bod
     z-index: 999;
 }
 
-/* Кнопка "Наверх" */
 .scroll-top-btn {
     position: fixed;
     bottom: 20px;
@@ -734,7 +712,6 @@ body.dark-theme .contact-form input, body.dark-theme .contact-form textarea, bod
     background-color: #2980b9;
 }
 
-/* Подвал */
 footer {
     background: linear-gradient(135deg, #2c3e50, #34495e);
     color: white;
@@ -767,9 +744,6 @@ footer a:hover {
     height: 30px;
 }
 
-/* Адаптивность */
-
-/* Планшеты (до 768px) */
 @media (max-width: 768px) {
     header {
         padding: 30px 15px;
@@ -880,7 +854,6 @@ footer a:hover {
     }
 }
 
-/* Телефоны (до 480px) */
 @media (max-width: 480px) {
     header {
         padding: 20px 10px;
@@ -1001,26 +974,22 @@ footer a:hover {
 }
 
 
-
-
-/* Адаптация верхней панели для мобильных (фиксированные ячейки в одну строку) */
 @media (max-width: 768px) {
     .nav-tabs {
-        flex-direction: row; /* оставляем горизонтально */
+        flex-direction: row;
         margin: 0;
         padding: 0;
     }
 
     .nav-tabs .tab {
-        flex: 1; /* все вкладки одинаковой ширины */
+        flex: 1;
     }
 
     .nav-tabs .tab > a {
-        padding: 10px 0; /* уменьшаем вертикальные отступы */
-        font-size: 0.9rem; /* уменьшаем шрифт */
+        padding: 10px 0;
+        font-size: 0.9rem;
     }
 
-    /* Подменю */
     .nav-tabs .tab .dropdown {
         position: absolute;
         top: 100%;
@@ -1034,7 +1003,6 @@ footer a:hover {
     }
 }
 
-/* Для маленьких телефонов */
 @media (max-width: 480px) {
     .nav-tabs .tab > a {
         padding: 8px 0;
@@ -1046,7 +1014,6 @@ footer a:hover {
         font-size: 0.8rem;
     }
 }
-/* На мобильных устройствах (#themeToggle выше nav) */
 @media (max-width: 768px) {
     #themeToggle {
         position: fixed;
